@@ -6,4 +6,7 @@ def deleteNode(llist, position)
     print llist
 end
 
-  deleteNode([20, 6, 2, 19, 7, 4, 15, 9], 3)
+ p deleteNode([20, 6, 2, 19, 7, 4, 15, 9], 3)
+
+
+ 
