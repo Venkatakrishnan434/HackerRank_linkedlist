@@ -82,7 +82,7 @@ class LinkedList
     end
   end
 
-  # CTCI-2.1: Write code to remove duplicates from an unsorted LinkedList
+
   def remove_duplicates
     node = @head
     h = Hash.new(0)
