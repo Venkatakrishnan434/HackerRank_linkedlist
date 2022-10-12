@@ -26,9 +26,9 @@ class LinkedList
   end
 
   def append(value)
-    
+    byebug
     if @head  # true or false --<falsy values 
-      find_tail.next = Node.new(value)
+      find_tail.next = Node.new(value) unless value <= -1
     else
       @head = Node.new(value)
     end
@@ -36,12 +36,11 @@ class LinkedList
 
 
   def shift_left(node)
-    if node.data != 0 and node.next != nil
+    if node.next != nil
       node.data = node.next.data
       shift_left(node.next)
     else
-      p "else"
-      node.next = nil
+      node.data = nil
     end
   end
 
@@ -49,26 +48,30 @@ class LinkedList
     if node.data == value
       shift_left(node)
     else
-      delete(node.next,value)
-      p "delete - else"
+      # p "delete - else"
+      delete(node.next,value) unless node.next == nil
     end
   end
 
   def find_tail
     # byebug
     node = @head
-
+    # if node != -1
     return node if !node.next
     return node if !node.next while node = node.next
+    # else  
+    #   puts "Nill"
+    # end
   end
  
 
   def display
+    # byebug
     node = @head
     p node.data
-    while node.next.data != 0 and node.next != nil
+    while node.next != nil
       node = node.next
-      puts node.data
+      puts node.data unless node.data == nil
     end
   end
 
@@ -83,11 +86,12 @@ list = LinkedList.new
 
 a = nil
 
-while a != 0 do
+while a != -1 do
  a = gets.chomp.to_i
- list.append a
-
+  list.append a
 end
+
+
 
 
 list.display
