@@ -26,7 +26,7 @@ class LinkedList
   end
 
   def append(value)
-    byebug
+    # byebug
     if @head  # true or false --<falsy values 
       find_tail.next = Node.new(value) unless value <= -1
     else
@@ -34,6 +34,14 @@ class LinkedList
     end
   end
 
+  def append_exclude(value)
+    # byebug
+    if value == -1
+      p "-1 is there"
+    else
+      p "else"
+    end 
+  end
 
   def shift_left(node)
     if node.next != nil
@@ -63,7 +71,6 @@ class LinkedList
     #   puts "Nill"
     # end
   end
- 
 
   def display
     # byebug
@@ -85,10 +92,20 @@ list = LinkedList.new
 
 
 a = nil
-
+byebug
+a = gets.chomp.to_i
 while a != -1 do
- a = gets.chomp.to_i
   list.append a
+  a = gets.chomp.to_i
+
+
+
+  # byebug
+# a = gets.chomp.to_i
+# if a != -1
+#  list.append a
+# end
+ 
 end
 
 
@@ -97,6 +114,7 @@ end
 list.display
 p "Delete the value"
 value = gets.chomp.to_i
+
 # byebug
 list.delete(list.head,value)
 list.display
