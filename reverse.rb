@@ -52,15 +52,15 @@ class Node
       end
     end
   
-    def append_exclude(value)
-      # byebug
-      if value == -1
-        p "-1 is there"
-      else
-        p "else"
-      end 
-    end
-  
+    # def append_exclude(value)
+    #   # byebug
+    #   if value == -1
+    #     p "-1 is there"
+    #   else
+    #     p "else"
+    #   end 
+    # end
+
     def shift_left(node)
       if node.next != nil
         node.data = node.next.data
@@ -92,7 +92,7 @@ class Node
 
 
     def reverse(value)
-            # byebug
+            byebug
             if not value or not value.next then
              return value
          end
@@ -135,7 +135,6 @@ class Node
   while a != -1 do
     list.append a
     a = gets.chomp.to_i
-  
   
   
     # byebug
