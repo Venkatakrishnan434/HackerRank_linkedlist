@@ -34,14 +34,7 @@ class LinkedList
     end
   end
 
-  def append_exclude(value)
-    # byebug
-    if value == -1
-      p "-1 is there"
-    else
-      p "else"
-    end 
-  end
+
 
   def shift_left(node)
     if node.next != nil
@@ -72,6 +65,22 @@ class LinkedList
     # end
   end
 
+  def remove_duplicates
+    byebug
+    node = @head
+    h = Hash.new(0)
+    return false unless node.next
+    h[@head.data] += 1
+    while (node = node.next)
+      h[node.data] += 1
+      if h[node.data] > 1
+        previous_node = find_previous(node.data)
+        previous_node.next = previous_node.next.next
+      end
+    end
+  end
+
+
   def display
     # byebug
     node = @head
@@ -92,7 +101,7 @@ list = LinkedList.new
 
 
 a = nil
-byebug
+# byebug
 a = gets.chomp.to_i
 while a != -1 do
   list.append a
@@ -117,6 +126,7 @@ value = gets.chomp.to_i
 
 # byebug
 list.delete(list.head,value)
+list.remove_duplicates
 list.display
 
 
